@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var port     = process.env.PORT || 7777; // set our port
+var port     = process.env.PORT || 3000; // set our port
 
 var mongoose = require('mongoose');
 //mongoose.connect(''); // connect to our database
