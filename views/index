@@ -6,8 +6,7 @@
 <script type="text/javascript" src="../fideliapp.js"></script>	
 </head>
 <body ng-controller="MainController as mainCtrl">
-{{mainCtrl.title}}
-Hello {{1 + 2}}
+Hola soy {{mainCtrl.title}}
 
 </body>
 </html>
