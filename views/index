@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
-<script type="text/javascript" src="../fideliapp.js"></script>	
+<script type="text/javascript" src="../public/javascripts/fideliapp.js"></script>	
 </head>
 <body ng-controller="MainController as mainCtrl">
 Hola soy {{mainCtrl.title}}

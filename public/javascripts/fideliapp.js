@@ -1,8 +1,8 @@
 (function(){
 	
-	var fideliapp = angular.module('fideliApp',[]);
+	var fideliApp = angular.module('fideliApp',[]);
 
-	fideliapp.controller('MainController', function(){
+		fideliApp.controller('MainController', function(){
 		var self = this;
 		self.title = "Fideliapp";
 	});
