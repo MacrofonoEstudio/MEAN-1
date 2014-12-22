@@ -11,7 +11,7 @@ var users = require('./routes/users');
 var port     = process.env.PORT || 3000; // set our port
 
 var mongoose = require('mongoose');
-//mongoose.connect(''); // connect to our database
+mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds029051.mongolab.com:29051/heroku_app32758175'); // connect to our database
 
 var app = express();
 
