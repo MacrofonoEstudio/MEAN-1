@@ -64,7 +64,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port);
+app.listen(app.get('port'));
 console.log('Magic happens on port ' + port);
 
 
