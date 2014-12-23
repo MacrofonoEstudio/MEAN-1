@@ -64,8 +64,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at port:" + app.get('port'));
-});
+app.listen(3000);
 
 module.exports = app;
+
+// app.get('port')
