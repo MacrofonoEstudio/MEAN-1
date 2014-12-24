@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Users = require('../models/fideliausers');
+var User  = require('../models/fideliausers');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -9,18 +9,17 @@ router.get('/', function(req, res) {
 
 router.post('/users', function(req, res) {
 
-	var user = new fideliaUser;
-
-	user.name = req.body.name;
+	var user = new User();		// create a new instance of the Bear model
+	user.name = req.body.name;  // set the bears name (comes from the request)
 	user.surname = req.body.surname;
 
-	user.save(function(){
-		if(err){
+	user.save(function(err) {
+		if (err)
 			res.send(err);
-		};
 
-		res.send('Todo Ok machote');
+		res.send("Todo Ok!");
 	});
+
 
 });
 
