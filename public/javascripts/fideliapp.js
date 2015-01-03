@@ -8,7 +8,7 @@
 
 		$http.get('/users').success(function(data) {
 		self.users = data;
+		});
 	});
-
 
 })();
