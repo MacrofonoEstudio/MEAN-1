@@ -30,7 +30,7 @@ router.get('/users', function(req, res) {
 		if (err)
 			res.send(err);
 
-		res.render('index', users);
+		res.json(users);
 	});
 
 });
