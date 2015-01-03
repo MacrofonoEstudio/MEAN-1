@@ -17,7 +17,7 @@ router.post('/users', function(req, res) {
 		if (err)
 			res.send(err);
 
-		res.send("Todo Ok!");
+		res.render('index');
 	});
 
 
