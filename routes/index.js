@@ -23,4 +23,16 @@ router.post('/users', function(req, res) {
 
 });
 
+
+router.get('/users', function(req, res) {
+
+	User.find(function(err, users) {
+		if (err)
+			res.send(err);
+
+		res.render('index', users);
+	});
+
+});
+
 module.exports = router;

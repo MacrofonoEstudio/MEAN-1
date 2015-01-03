@@ -7,8 +7,15 @@
 </head>
 <body ng-controller="MainController as mainCtrl">
 Hola soy {{mainCtrl.title}}
+<div ng-repeat="user in users.mainCtrl">
+{{user.name}}
+{{user.surname}}
+</div>
 
-<form action="/users" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">First name:<br><input type="text" name="name" value=""><br>Surname:<br><input type="text" name="surname" value=""><br><input type="submit" value="Submit"></form>'
+<form action="/users" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">First name:<br><input type="text" name="name" value=""><br>Surname:<br><input type="text" name="surname" value=""><br><input type="submit" value="Submit"></form>
+<form action="/users" method="GET" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+	<input type="submit" value="Get!">
+</form>
 
 </body>
 </html>
