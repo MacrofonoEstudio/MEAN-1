@@ -6,13 +6,9 @@
 		var self = this;
 		self.title = "Fideliapp";
 
-		$http.get('/users').then(function(response) {
-			self.users = response.data;
-			},
-			function(errResponse) {
-			console.error('Error while fetching notes');
-			}
-		);
+		$http.get('/users').success(function(data) {
+		self.users = data;
 	});
+
 
 })();
