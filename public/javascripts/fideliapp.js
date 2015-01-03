@@ -11,5 +11,8 @@
 			},
 			function(errResponse) {
 			console.error('Error while fetching notes');
-		});
+			}
+		);
+	});
+
 })();
