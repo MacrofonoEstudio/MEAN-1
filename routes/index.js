@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var User  = require('../models/fideliausers');
 
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index');
@@ -34,5 +37,13 @@ router.get('/users', function(req, res) {
 	});
 
 });
+
+//PASSPORT Facebook
+
+router.get('/auth/facebook', passport.authenticate('facebook'));
+
+router.get('/auth/facebook/logged', 
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
 
 module.exports = router;

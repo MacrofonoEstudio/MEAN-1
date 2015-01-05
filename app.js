@@ -13,6 +13,11 @@ var port     = process.env.PORT || 3000; // set our port
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds029051.mongolab.com:29051/heroku_app32758175'); // connect to our database
 
+var passport = require('passport');
+var expressSession = require('express-session');
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+
 var app = express();
 
 // view engine setup
@@ -29,8 +34,27 @@ app.use("/public/javascripts", express.static(__dirname + '/public/javascripts')
 app.use("/public/images", express.static(__dirname + '/public/images'));
 app.use("/public/css", express.static(__dirname + '/public/css'));
 
+app.use(expressSession({secret: 'MacroIslanders'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', routes);
 app.use('/users', users);
+
+
+passport.use(new FacebookStrategy({
+    clientID: 315199665271079,
+    clientSecret: ae3b24781563d34b5bdf263851bdc17b,
+    callbackURL: "https://fideliapp1.herokuapp.com//auth/facebook/logged"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate(..., function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
