@@ -48,7 +48,7 @@ router.get('/auth/facebook/logged',
                                       failureRedirect: '/login' }));
 
 
-app.get('/logout', function(req, res){
+router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
