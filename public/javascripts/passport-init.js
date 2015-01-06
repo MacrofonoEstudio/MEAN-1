@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var User  = require('../../models/fideliausers');
+var User  = require('../../models/user');
 
 var FacebookStrategy = require('passport-facebook').Strategy;
 
