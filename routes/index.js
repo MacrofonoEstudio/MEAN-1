@@ -38,11 +38,6 @@ router.get('/users', function(req, res) {
 
 });
 
-router.get('/logged', function(req, res) {
-
-	res.render('index', {title:"Jelou"});
-
-});
 
 //PASSPORT Facebook
 
@@ -51,5 +46,11 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 router.get('/auth/facebook/logged', 
   passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/login' }));
+
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 module.exports = router;
