@@ -13,6 +13,11 @@ var port     = process.env.PORT || 3000; // set our port
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds029051.mongolab.com:29051/heroku_app32758175'); // connect to our database
 
+// Login system with passport
+var passport = require('passport');
+var expressSession = require('express-session');
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 
 var app = express();
 
@@ -20,24 +25,16 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon());
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/public/javascripts", express.static(__dirname + '/public/javascripts'));
 app.use("/public/images", express.static(__dirname + '/public/images'));
 app.use("/public/css", express.static(__dirname + '/public/css'));
 
-app.use('/', routes);
-app.use('/users', users);
-
-
-// Login system with passport
-var passport = require('passport');
-var expressSession = require('express-session');
-var FacebookStrategy = require('passport-facebook').Strategy;
+app.use(favicon());
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 app.use(expressSession({
     secret: 'MacroIslanders',
@@ -46,6 +43,10 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', routes);
+app.use('/users', users);
+
 
 // Initialize Passport
 var initPassport = require('./public/javascripts/passport-init');
