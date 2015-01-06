@@ -38,6 +38,12 @@ router.get('/users', function(req, res) {
 
 });
 
+router.get('/logged', function(req, res) {
+
+	res.render('index', {title:"Jelou"});
+
+});
+
 //PASSPORT Facebook
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
