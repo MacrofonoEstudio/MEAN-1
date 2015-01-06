@@ -22,7 +22,7 @@ module.exports = function(passport){
     clientID: 315199665271079,
     clientSecret: "ae3b24781563d34b5bdf263851bdc17b",
     callbackURL: "https://fideliapp1.herokuapp.com/auth/facebook/logged",
-    profileFields : ['id', 'displayName', 'provider', 'photos']
+    profileFields : ['id', 'displayName', 'photos']
 	  },
 
 	  function(accessToken, refreshToken, profile, done) {
@@ -37,7 +37,6 @@ module.exports = function(passport){
 			// Si no existe crea un nuevo objecto usuario
 			var user = new User({
 				provider_id	: profile.id,
-				provider : profile.provider,
 				name : profile.displayName,
 				photo : profile.photos[0].value
 			});
