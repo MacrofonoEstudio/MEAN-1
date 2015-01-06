@@ -6,11 +6,13 @@
 <script type="text/javascript" src="../public/javascripts/fideliapp.js"></script>	
 </head>
 <body ng-controller="MainController as mainCtrl">
+Título desde router: {Titulo}
 Hola soy {{mainCtrl.title}}
 <div ng-repeat="user in mainCtrl.users">
 {{user.name}}
 {{user.surname}}
 </div>
+<a href="/auth/facebook">Login con Facebook</a>
 
 <form action="/users" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">First name:<br><input type="text" name="name" value=""><br>Surname:<br><input type="text" name="surname" value=""><br><input type="submit" value="Submit"></form>
 <form action="/users" method="GET" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
