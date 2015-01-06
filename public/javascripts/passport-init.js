@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var User  = require('../../models/user');
+var User  = require('../../models/fideliausers');
 
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -22,7 +22,7 @@ module.exports = function(passport){
     clientID: 315199665271079,
     clientSecret: "ae3b24781563d34b5bdf263851bdc17b",
     callbackURL: "https://fideliapp1.herokuapp.com/auth/facebook/logged",
-    profileFields : ['id', 'displayName', 'photos']
+    profileFields : ['id', 'displayName', 'provider', 'photos']
 	  },
 
 	  function(accessToken, refreshToken, profile, done) {
