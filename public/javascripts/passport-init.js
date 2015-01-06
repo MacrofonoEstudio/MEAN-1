@@ -21,7 +21,8 @@ module.exports = function(passport){
 	passport.use(new FacebookStrategy({
     clientID: 315199665271079,
     clientSecret: "ae3b24781563d34b5bdf263851bdc17b",
-    callbackURL: "https://fideliapp1.herokuapp.com/auth/facebook/logged"
+    callbackURL: "https://fideliapp1.herokuapp.com/auth/facebook/logged",
+    profileFields : ['id', 'displayName', 'provider', 'photos']
 	  },
 
 	  function(accessToken, refreshToken, profile, done) {
