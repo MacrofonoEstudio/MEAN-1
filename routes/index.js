@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User  = require('../models/fideliausers');
+var User  = require('../models/user');
 
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
