@@ -22,7 +22,7 @@ module.exports = function(passport){
     clientID: 315199665271079,
     clientSecret: "ae3b24781563d34b5bdf263851bdc17b",
     callbackURL: "https://fideliapp1.herokuapp.com/auth/facebook/logged",
-    profileFields : ['id', 'displayName', 'photos', 'gender', 'email']
+    profileFields : ['id', 'displayName', 'photos', 'gender', 'emails']
 	  },
 
 	  function(accessToken, refreshToken, profile, done) {
