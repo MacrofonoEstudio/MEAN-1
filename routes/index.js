@@ -41,7 +41,7 @@ router.get('/users', function(req, res) {
 
 //PASSPORT Facebook
 
-router.get('/auth/facebook', passport.authenticate('facebook'));
+router.get('/auth/facebook', passport.authenticate('facebook')); // , { scope: ['user_status', 'user_checkins', 'user_groups'] }
 
 router.get('/auth/facebook/logged', 
   passport.authenticate('facebook', { successRedirect: '/',
