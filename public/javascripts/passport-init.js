@@ -63,7 +63,7 @@ module.exports = function(passport){
 	      	console.log('Usuario Incorrrecto');
 	        return done(null, false, { message: 'Incorrect username.' });
 	      }
-	      if (user.password != password)) {
+	      if (user.password != password) {
 	      	console.log('Password Incorrrecto');
 	        return done(null, false, { message: 'Incorrect password.' });
 	      }
