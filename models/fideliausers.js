@@ -8,6 +8,7 @@ var fideliappSchema   = new Schema({
 	photo : String, // Avatar o foto del usuario
 	gender : String,
 	email : String,
+	password: String,
 	createdAt : {type: Date, default: Date.now} // Fecha de creación
 });
 
