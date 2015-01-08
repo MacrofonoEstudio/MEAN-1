@@ -47,7 +47,7 @@ router.get('/auth/facebook/logged',
                                       failureRedirect: '/login' }));
 
 // Passport Local user/pw
-app.post('/login', passport.authenticate('local', { successRedirect: '/',
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 );
