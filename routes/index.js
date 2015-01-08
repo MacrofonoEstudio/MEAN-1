@@ -23,7 +23,6 @@ router.post('/users', function(req, res) {
 		res.render('index');
 	});
 
-
 });
 
 
@@ -41,11 +40,17 @@ router.get('/users', function(req, res) {
 
 //PASSPORT Facebook
 
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] })); // 
+router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] })); // In Scope we include the Extended Permissions (Out of the general profile (Name...)) we want to use from FB
 
 router.get('/auth/facebook/logged', 
   passport.authenticate('facebook', { successRedirect: '/',
                                       failureRedirect: '/login' }));
+
+// Passport Local user/pw
+app.post('/login', passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
 
 
 router.get('/logout', function(req, res){

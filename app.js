@@ -36,6 +36,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
+// Set up Passport
 app.use(expressSession({
     secret: 'MacroIslanders',
     resave: false,
