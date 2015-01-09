@@ -47,10 +47,17 @@ router.get('/auth/facebook/logged',
                                       failureRedirect: '/login' }));
 
 // Passport Local user/pw
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
+router.post('/login', passport.authenticate('local', { successRedirect: '/logged',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 );
+
+
+router.get('/logged', function(req, res) {
+
+	res.render('index', {title: "Logged"});
+
+});
 
 
 router.get('/logout', function(req, res){
