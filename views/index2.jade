@@ -1,0 +1,43 @@
+doctype html
+html(ng-app='fideliApp')
+head
+  title
+  script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js')
+  script(type='text/javascript', src='../public/javascripts/fideliapp.js')
+  body(ng-controller='MainController as mainCtrl')
+    | #{titulin}
+    | Usuario: #{usuario}
+    | Hola soy {{mainCtrl.title}}
+    div(ng-repeat='user in mainCtrl.users')
+      | {{user.name}}
+      | {{user.surname}}
+    a(href='/auth/facebook') Login con Facebook
+    a(href='/logout') Log out
+    form(action='/users', method='POST', accept-charset='UTF-8', enctype='application/x-www-form-urlencoded')
+      | First name:
+      br
+      | 
+      input(type='text', name='name', value='')
+      br
+      | Surname:
+      br
+      | 
+      input(type='text', name='surname', value='')
+      br
+      | 
+      input(type='submit', value='Submit')
+    form(action='/login', method='POST', accept-charset='UTF-8', enctype='application/x-www-form-urlencoded')
+      | Email:
+      br
+      | 
+      input(type='text', name='username', value='@')
+      br
+      | Password:
+      br
+      | 
+      input(type='text', name='password', value='')
+      br
+      | 
+      input(type='submit', value='Log In')
+    form(action='/users', method='GET', accept-charset='UTF-8', enctype='application/x-www-form-urlencoded')
+      input(type='submit', value='Get!')

@@ -5,18 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var port     = process.env.PORT || 3000; // set our port
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds029051.mongolab.com:29051/heroku_app32758175'); // connect to our database
+mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds029051.mongolab.com:29051/heroku_app32758175', function(err, res) {
+  if(err) throw err;
+  console.log('Conectado con éxito a la BBDD');
+}); // connect to our database
 
 // Login system with passport
 var passport = require('passport');
 var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
+
+var mailer = require('express-mailer');
 
 
 var app = express();
@@ -54,6 +60,18 @@ var initPassport = require('./public/javascripts/passport-init');
 initPassport(passport);
 
 
+mailer.extend(app, {
+  from: 'direccion@macrofono.es',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'direccion@macrofono.es',
+    pass: 'xielasm..'
+  }
+});
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -63,6 +81,12 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
+app.use(function(req, res, next){
+  // the status option, or res.statusCode = 404
+  // are equivalent, however with the option we
+  // get the "status" local available as well
+  res.render('404', { status: 404, url: req.url });
+});
 
 // development error handler
 // will print stacktrace
@@ -92,6 +116,7 @@ app.listen(app.get('port'), function() {
   console.log("Node app is running at port:" + app.get('port'));
 });
 
-/* app.listen(3000); */
+/* app.listen(3000);
+console.log("Node app is running at port:" + app.get('port')); */
 
 module.exports = app;
