@@ -26,8 +26,10 @@ Hola soy {{mainCtrl.title}}
 </form>
 
 <form action="/login" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+		Nombre:<br>
+		<input type="text" name="name" value=""><br>
 		Email:<br>
-		<input type="text" name="username" value="@"><br>
+		<input type="text" name="username" placeholder="@"><br>
 		Password:<br>
 		<input type="text" name="password" value=""><br>
 		<input type="submit" value="Log In">
@@ -35,7 +37,7 @@ Hola soy {{mainCtrl.title}}
 
 </br>
 
-<form action="/email" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+<form action="/register" method="POST" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
 		Email:<br>
 		<input type="text" name="email" placeholder="@"><br>
 		Mensaje:<br>

@@ -109,4 +109,27 @@ router.post('/email', function(req, res) {
 });
 
 
+// Routes for verify mailing
+router.get('/register', function(req, res){
+
+	var user = new User({
+		provider: 'email',
+		provider_id	: null,
+		name : req.body.name,
+		photo : '',
+		gender : null,
+		email : req.body.email,
+		password: req.body.password,
+		verify: false
+	});
+
+	//...y lo almacena en la base de datos
+	user.save(function(err) {
+		if(err) throw err;
+		done(null, user);
+	});
+
+});
+
+
 module.exports = router;
