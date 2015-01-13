@@ -21,8 +21,6 @@ var passport = require('passport');
 var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-var nodemailer = require('nodemailer');
-
 var app = express();
 
 // view engine setup
