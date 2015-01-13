@@ -5,6 +5,7 @@ var User  = require('../models/fideliausers');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+// Configuración de nodemailer
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -102,6 +103,8 @@ router.post('/email', function(req, res) {
 	    console.log('Server responded with "%s"', info.response);
 
 	});
+
+	res.render('index');
 
 });
 
