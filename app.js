@@ -22,8 +22,6 @@ var passport = require('passport');
 var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
-var mailer = require('express-mailer');
-
 
 var app = express();
 
@@ -58,19 +56,6 @@ app.use('/users', users);
 // Initialize Passport
 var initPassport = require('./public/javascripts/passport-init');
 initPassport(passport);
-
-
-mailer.extend(app, {
-  from: 'direccion@macrofono.es',
-  host: 'smtp.gmail.com', // hostname
-  secureConnection: true, // use SSL
-  port: 465, // port for secure SMTP
-  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-  auth: {
-    user: 'direccion@macrofono.es',
-    pass: 'xielasm..'
-  }
-});
 
 
 /// catch 404 and forward to error handler
