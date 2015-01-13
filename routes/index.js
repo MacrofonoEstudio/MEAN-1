@@ -5,6 +5,15 @@ var User  = require('../models/fideliausers');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'direccion@macrofono.es',
+        pass: 'xielasm..'
+    }
+});
+
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {titulin: "titulín"});

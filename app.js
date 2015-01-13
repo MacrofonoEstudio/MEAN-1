@@ -22,13 +22,6 @@ var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'direccion@macrofono.es',
-        pass: 'xielasm..'
-    }
-});
 
 var app = express();
 
