@@ -110,7 +110,7 @@ router.post('/email', function(req, res) {
 
 
 // Routes for verify mailing
-router.get('/register', function(req, res){
+router.post('/register', function(req, res){
 
 	var user = new User({
 		provider: 'email',
