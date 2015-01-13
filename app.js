@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -22,6 +21,14 @@ var passport = require('passport');
 var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
 
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'direccion@macrofono.es',
+        pass: 'xielasm..'
+    }
+});
 
 var app = express();
 

@@ -66,41 +66,33 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
+// Routes for mailing
+
 router.post('/mail', function(req, res) {
 
-	app.mailer.send('email', {
-	    to: req.body.email, // REQUIRED. This can be a comma delimited string just like a normal email to field. 
-	    subject: req.body.message // REQUIRED.    
-	  	}, 
+	var message = {
 
-	  	function (err) {
-	    if (err) {
-	      // handle error
-	      console.log(err);
-	      res.send('There was an error sending the email');
-	      return;
+		from: 'direccion@macrofono.es',
+		to: req.body.email,
+		subject: 'Holita',
+		text: req.body.message
+
+	};
+	
+	transporter.sendMail(message, function(error, info) {
+
+	    if (error) {
+	        console.log('Error occurred');
+	        console.log(error.message);
+	        return;
+
 	    }
-	    res.send('Email Sent');
-  	});
+	    
+	    console.log('Message sent successfully!');
+	    console.log('Server responded with "%s"', info.response);
 
-});
-
-router.get('/mail', function(req, res) {
-
-	app.mailer.send('email', {
-	    to: 'info@macrofonoestudio.es', // REQUIRED. This can be a comma delimited string just like a normal email to field. 
-	    subject: 'Holita' // REQUIRED.    
-	  	}, 
-
-	  	function (err) {
-	    if (err) {
-	      // handle error
-	      console.log(err);
-	      res.send('There was an error sending the email');
-	      return;
-	    }
-	    res.send('Email Sent');
-  	});
+	});
 
 });
 
