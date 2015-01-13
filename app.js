@@ -16,7 +16,7 @@ mongoose.connect('mongodb://heroku_app32758175:5nitvt7p9n49k6kuto374c55mn@ds0290
   console.log('Conectado con éxito a la BBDD');
 }); // connect to our database
 
-// Login system with passport
+// Login system with passport js
 var passport = require('passport');
 var expressSession = require('express-session');
 var FacebookStrategy = require('passport-facebook').Strategy;
