@@ -72,17 +72,10 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-/// error handlers
-app.use(function(req, res, next){
-  // the status option, or res.statusCode = 404
-  // are equivalent, however with the option we
-  // get the "status" local available as well
-  res.render('404', { status: 404, url: req.url });
-});
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if(app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {

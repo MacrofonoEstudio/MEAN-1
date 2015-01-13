@@ -69,7 +69,7 @@ router.get('/logout', function(req, res){
 
 // Routes for mailing
 
-router.post('/mail', function(req, res) {
+router.post('/email', function(req, res) {
 
 	var message = {
 
@@ -88,7 +88,7 @@ router.post('/mail', function(req, res) {
 	        return;
 
 	    }
-	    
+
 	    console.log('Message sent successfully!');
 	    console.log('Server responded with "%s"', info.response);
 
