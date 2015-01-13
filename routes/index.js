@@ -86,7 +86,7 @@ router.post('/email', function(req, res) {
 		from: 'direccion@macrofono.es',
 		to: req.body.email,
 		subject: 'Holita',
-		text: req.body.message
+		text: req.body.message + '<a href="https://fideliapp1.herokuapp.com/id/'+ req.body.email +'">Clic aquí para confirmar tu email</a>'
 
 	};
 	
