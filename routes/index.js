@@ -159,7 +159,7 @@ router.post('/register', function(req, res){
 
 router.get('/id/:email', function (req, res, next) {
 
-  User.find({ email: req.params.id }, function(err, user){
+  User.findOne({ email: req.params.id }, function(err, user){
 
   	if (err){ res.send(err) };
 
