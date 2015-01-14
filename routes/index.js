@@ -126,7 +126,7 @@ router.post('/register', function(req, res){
 	//...y lo almacena en la base de datos
 	user.save(function(err) {
 		if(err) throw err;
-		done(null, user);
+		console.log('Usuario registrado:' + req.body.name + ", " + req.body.email)
 	});
 
 });
