@@ -9,7 +9,7 @@ var fideliappSchema   = new Schema({
 	gender : String,
 	email : String,
 	password: String,
-	verify: boolean,
+	verify: Boolean,
 	createdAt : {type: Date, default: Date.now} // Fecha de creación
 });
 
