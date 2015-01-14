@@ -114,10 +114,10 @@ router.post('/register', function(req, res){
 	//Creamos un nuevo usuario con los datos del request
 	var user = new User({
 		provider: 'email',
-		provider_id	: 'none',
+		provider_id	: 'void',
 		name : req.body.name,
-		photo : 'none',
-		gender : 'none',
+		photo : 'void',
+		gender : 'void',
 		email : req.body.email,
 		password: req.body.password,
 		verify: false
@@ -132,7 +132,7 @@ router.post('/register', function(req, res){
 	//Enviamos un email para verificar el usuario
 	var message = {
 
-		from: 'direccion@macrofono.es',
+		from: 'fidelia.app@gmail.com',
 		to: req.body.email,
 		subject: 'Verificación de email',
 		text: req.body.message + '<a href="https://fideliapp1.herokuapp.com/id/'+ req.body.email +'">Clic aquí para confirmar tu email</a>'
