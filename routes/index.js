@@ -10,8 +10,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'direccion@macrofono.es',
-        pass: 'xielasm..'
+        user: 'fidelia.app@gmail.com',
+        pass: 'macropollo'
     }
 });
 
@@ -112,6 +112,7 @@ router.post('/email', function(req, res) {
 // Routes for verify mailing
 router.post('/register', function(req, res){
 
+	//Creamos un nuevo usuario con los datos del request
 	var user = new User({
 		provider: 'email',
 		provider_id	: 'none',
@@ -128,6 +129,32 @@ router.post('/register', function(req, res){
 		if(err) throw err;
 		console.log('Usuario registrado:' + req.body.name + ", " + req.body.email)
 	});
+
+	//Enviamos un email para verificar el usuario
+	var message = {
+
+		from: 'direccion@macrofono.es',
+		to: req.body.email,
+		subject: 'Verificación de email',
+		text: req.body.message + '<a href="https://fideliapp1.herokuapp.com/id/'+ req.body.email +'">Clic aquí para confirmar tu email</a>'
+
+	};
+	
+	transporter.sendMail(message, function(error, info) {
+
+	    if (error) {
+	        console.log('Error occurred');
+	        console.log(error.message);
+	        return;
+
+	    }
+
+	    console.log('Message sent successfully!');
+	    console.log('Server responded with "%s"', info.response);
+
+	});
+
+	res.render('index');
 
 });
 
