@@ -114,10 +114,10 @@ router.post('/register', function(req, res){
 	//Creamos un nuevo usuario con los datos del request
 	var user = new User({
 		provider: 'email',
-		provider_id	: 'void',
+		provider_id	: '',
 		name : req.body.name,
-		photo : 'void',
-		gender : 'void',
+		photo : '',
+		gender : '',
 		email : req.body.email,
 		password: req.body.password,
 		verify: false

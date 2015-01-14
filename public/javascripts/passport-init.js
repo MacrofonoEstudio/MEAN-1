@@ -42,7 +42,7 @@ module.exports = function(passport){
 				photo : profile.photos[0].value,
 				gender : profile.gender,
 				email : profile.emails[0].value,
-				password: 'void',
+				password: '',
 				verify: false,
 			});
 			//...y lo almacena en la base de datos
