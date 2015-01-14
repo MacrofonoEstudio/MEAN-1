@@ -10,8 +10,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'fidelia.app@gmail.com',
-        pass: 'macropollo'
+        user: 'direccion@macrofono.es',
+        pass: 'xielasm..'
     }
 });
 
@@ -135,7 +135,7 @@ router.post('/register', function(req, res){
 		from: 'fidelia.app@gmail.com',
 		to: req.body.email,
 		subject: 'Verificación de email',
-		text: req.body.message + '<a href="https://fideliapp1.herokuapp.com/id/'+ req.body.email +'">Clic aquí para confirmar tu email</a>'
+		text: '<a href="https://fideliapp1.herokuapp.com/id/'+ req.body.email +'">Clic aquí para confirmar tu email</a>'
 
 	};
 	
