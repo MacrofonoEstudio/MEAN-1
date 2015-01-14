@@ -163,7 +163,7 @@ router.get('/id/:email', function (req, res, next) {
 
   	if (err){ res.send(err) };
 
-  	if (!user) {console.log{'no hay usuario'}};
+  	if (!user) {console.log('no hay usuario')};
 
 	console.log('Bienvenido ' + user.name);
 
