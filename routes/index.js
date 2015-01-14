@@ -114,10 +114,10 @@ router.post('/register', function(req, res){
 
 	var user = new User({
 		provider: 'email',
-		provider_id	: null,
+		provider_id	: undefined,
 		name : req.body.name,
-		photo : '',
-		gender : null,
+		photo : undefined,
+		gender : undefined,
 		email : req.body.email,
 		password: req.body.password,
 		verify: false
