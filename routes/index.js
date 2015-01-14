@@ -10,8 +10,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'direccion@macrofono.es',
-        pass: 'xielasm..'
+        user: 'fidelia.app@gmail.com',
+        pass: 'macropollo'
     }
 });
 
@@ -162,6 +162,8 @@ router.get('/id/:email', function (req, res, next) {
   User.findOne({ email: req.params.id }, function(err, user){
 
   	if (err){ res.send(err) };
+
+  	if (!user) {console.log{'no hay usuario'}};
 
 	console.log('Bienvenido ' + user.name);
 
