@@ -96,7 +96,6 @@ router.post('/email', function(req, res) {
 	        console.log('Error occurred');
 	        console.log(error.message);
 	        return;
-
 	    }
 
 	    console.log('Message sent successfully!');
@@ -146,7 +145,6 @@ router.post('/register', function(req, res){
 	        console.log('Error occurred');
 	        console.log(error.message);
 	        return;
-
 	    }
 
 	    console.log('Message sent successfully!');
@@ -155,6 +153,19 @@ router.post('/register', function(req, res){
 	});
 
 	res.render('index');
+
+});
+
+
+router.get('/id/:email', function (req, res, next) {
+
+  User.find({ email: req.params.id }, function(err, user){
+
+  	if (err){ res.send(err) };
+
+	console.log('Bienvenido ' + user.name);
+
+  });
 
 });
 
