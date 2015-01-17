@@ -13,4 +13,4 @@ var fideliappSchema   = new Schema({
 	createdAt : {type: Date, default: Date.now} // Fecha de creación
 });
 
-module.exports = mongoose.model('fideliaUsers', fideliappSchema);
+module.exports = mongoose.model('fideliaUser', fideliappSchema);
