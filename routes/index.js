@@ -166,9 +166,14 @@ router.get('/id/:id', function (req, res, next) {
 
   	if (err){ res.send(err) };
 
-  	if (!user) {console.log('no hay usuario')};
+  	if (user) {
+  		user.verify = true;
+  		console.log('Bienvenido ' + user.name);
+  		};
 
-	console.log('Bienvenido ' + user);
+  	console.log('no hay usuario');
+
+	res.render('index');
 
   });
 
