@@ -166,14 +166,18 @@ router.get('/id/:id', function (req, res, next) {
 
   	if (err){ res.send(err) };
 
-  	if (user) {
+  	if (user){
   		user.verify = true;
-  		console.log('Bienvenido ' + user.name);
-  		};
 
-  	console.log('no hay usuario');
+  		user.save(function(err) {
+			if (err){res.send(err)};
+			console.log('Usuario verificado: ' + user.name);	
+			res.redirect('/login');
+		});
 
-	res.render('index');
+  	};
+
+  	res.redirect('/login');
 
   });
 
