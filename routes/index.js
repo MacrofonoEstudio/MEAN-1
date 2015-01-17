@@ -161,13 +161,14 @@ router.post('/register', function(req, res){
 
 router.get('/id/:email', function (req, res, next) {
 
+  console.log('req.params.id: ' + req.params.id)
   User.findOne({ email: req.params.id }, function(err, user){
 
   	if (err){ res.send(err) };
 
   	if (!user) {console.log('no hay usuario')};
 
-	console.log('Bienvenido ' + user.name);
+	console.log('Bienvenido ' + user);
 
   });
 
