@@ -56,10 +56,10 @@ router.get('/auth/facebook/logged', passport.authenticate('facebook', { successR
 
 // Passport Local user/pw
 router.post('/login',
-	passport.authenticate('local', { successRedirect: '', failureRedirect: '/login2' }),
+	passport.authenticate('local', { successRedirect: '', failureRedirect: '/login' }),
 	function(req, res){ // When visiting this route first Passport tries to authentificate the user, if ok it proceeds to the next function
 
-	console.log('Usuario registrado' + req.user.name);
+	console.log('Usuario registrado y logeado' + req.user.name);
 	res.render('index', {usuario: req.user.name});
 
 

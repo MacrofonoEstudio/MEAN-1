@@ -39,10 +39,10 @@ fideliappSchema.pre('save', function(next) {
 });
 
 // Adds to the schema a method that compares passwords to verify
-fideliappSchema.methods.comparePassword = function(candidatePassword, cb) {
+fideliappSchema.methods.comparePassword = function(candidatePassword, callback) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) return cb(err);
-    cb(null, isMatch);
+    callback(null, isMatch);
   });
 };
 

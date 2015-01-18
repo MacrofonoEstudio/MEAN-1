@@ -64,12 +64,15 @@ module.exports = function(passport){
 	      	console.log('Usuario Incorrrecto');
 	        return done(null, false, { message: 'Incorrect username.' });
 	      }
-	      if (user.password != password) {
-	      	console.log('Password Incorrrecto');
-	        return done(null, false, { message: 'Incorrect password.' });
-	      }
-	      console.log('Usuario + Password Corrrectos');
-	      return done(null, user);
+	      
+	      user.comparePassword(password, function(err, isMatch) {
+		      if (isMatch) {
+		        return done(null, user);
+		      } else {
+		        return done(null, false, { message: 'Incorrect password.' });
+		      }
+		  });
+
 	    });
 	  }
 	));
