@@ -17,7 +17,7 @@ var transporter = nodemailer.createTransport({
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {titulin: "titulín"});
+  res.render('home', {titulin: "titulín"});
 });
 
 router.post('/users', function(req, res) {
@@ -30,7 +30,7 @@ router.post('/users', function(req, res) {
 		if (err)
 			res.send(err);
 
-		res.render('index');
+		res.render('home');
 	});
 
 });
@@ -60,14 +60,14 @@ router.post('/login',
 	function(req, res){ // When visiting this route first Passport tries to authentificate the user, if ok it proceeds to the next function
 
 	console.log('Usuario registrado!' + req.user.name);
-	res.render('index', {usuario: req.user});
+	res.render('home', {usuario: req.user});
 
 });
 
 
 router.get('/logged', function(req, res) {
 
-	res.render('index');
+	res.render('home');
 
 });
 
@@ -104,7 +104,7 @@ router.post('/email', function(req, res) {
 
 	});
 
-	res.render('index');
+	res.render('home');
 
 });
 
@@ -153,7 +153,7 @@ router.post('/register', function(req, res){
 
 	});
 
-	res.render('index');
+	res.render('home');
 
 });
 
