@@ -59,7 +59,7 @@ router.post('/login',
 	passport.authenticate('local', { successRedirect: '', failureRedirect: '/loginfail' }),
 	function(req, res){ // When visiting this route first Passport tries to authentificate the user, if ok it proceeds to the next function
 
-	console.log('Usuario registrado y logeado' + req.user.name);
+	console.log('Usuario registrado!' + req.user.name);
 	res.render('index', {usuario: req.user});
 
 });
